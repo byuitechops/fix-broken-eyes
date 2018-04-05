@@ -6,13 +6,14 @@ const asyncLib = require('async');
 const prompt = require('prompt');
 var courseId;
 
+/* Starts the prompt which asks the user for the course Id and then runs getStuffFromCanvas */
 prompt.start();
 prompt.get('CourseId', (err, result) => {
     courseId = result.CourseId;
     getStuffFromCanvas();
 });
 
-
+/* Sends a request to Canvas to put the changed html into the course */
 function updatePage(page, callback) {
     var putObject = {
         'wiki_page[body]': page.$.html()
@@ -25,7 +26,7 @@ function updatePage(page, callback) {
     });
 }
 
-
+/* Finds the src urls that have the wrong path and changes it to the correct path as well as adds the desired width of the src image */
 function fixEyes(page) {
     page.$('img').each((i, elem) => {
         if (elem.attribs.src && elem.attribs.src.includes('Eye%20button') && !elem.attribs.src.includes('SessionVal')) {
@@ -36,6 +37,7 @@ function fixEyes(page) {
     return page;
 }
 
+/* Sends a request to Canvas to get each page and their html. Calls fixEyes on each page to make desired changes */
 function getStuffFromCanvas() {
     canvas.getPages(courseId, (err, pages) => {
         asyncLib.mapLimit(pages, 30, (page, callback) => {
