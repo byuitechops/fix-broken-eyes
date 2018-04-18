@@ -45,12 +45,15 @@ function updatePage(page, callback) {
 /* Finds the src urls that have the wrong path and changes it to the correct path as well as adds the desired width of the src image */
 function fixEyes(page) {
     var changed = false;
+    if (!page.$) {
+        return changed;
+    }
     page.$('img[alt="Click to Define"]').each((i, elem) => {
         if (!elem.attribs.src.includes('SessionVal')) {
             page.$(elem).attr('src', `/courses/${courseId}/files/${yellowEyeFile.id}/preview`);
             page.$(elem).attr('width', '4%');
             changed = true;
-            console.log(`Page images fixed: ${page.name}`);
+            console.log(`Page image fixed: ${page.title}`);
         }
     });
     return changed;
