@@ -4,7 +4,7 @@
   "description": "",
   "main": "fix-broken-eyes.js",
   "scripts": {
-    "start": "fix-broken-eyes.js",
+    "start": "node fix-broken-eyes.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Emma Fisher",
@@ -13,6 +13,7 @@
     "async": "^2.6.0",
     "canvas-wrapper": "github:byuitechops/canvas-wrapper",
     "cheerio": "^1.0.0-rc.2",
-    "he": "^1.1.1"
+    "he": "^1.1.1",
+    "prompt": "^1.0.0"
   }
 }
