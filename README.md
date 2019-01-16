@@ -9,11 +9,11 @@ Standard Install
 
 1. Clone this repository:
     ```bash
-    git clone <%= repositoryLink %>.git
+    git clone https://github.com/byuitechops/fix-broken-eyes.git
     ```
 1. Step into the folder that was just created 
     ```bash
-    cd ./<%= repositoryName %>
+    cd ./fix-broken-eyes
     ```
 1. To install dependancies, run:
     ```bash
@@ -26,20 +26,4 @@ Standard Install
     ```
 
 ## How to Use
-Run the following command:
-```bash
-node <%= main %>
-```
-
-
-## How to Build
-From within the folder where the project resides, run the following:
-```bash
-npm run build
-```
-
-## How to Test
-From within the folder where the project resides, run the following:
-```bash
-npm test
-```
+The program will prompt the user for the course ID. It will go through and change the src and width of the broken eye images.
