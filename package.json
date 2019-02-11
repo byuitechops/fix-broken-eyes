@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node fix-broken-eyes.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "preversion": "node fix-broken-eyes.js",
+    "preversion": "npm start",
     "version": "git checkout master && git merge dev",
     "postversion": "git branch -d dev"
   },
