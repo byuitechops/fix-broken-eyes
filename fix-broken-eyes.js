@@ -83,22 +83,22 @@ function getStuffFromCanvas() {
             console.log('The needed file does not exist in the course.');
         } else {
             console.log(`Needed image found: ${yellowEyeFile.display_name} | ${yellowEyeFile.id}`);
-            // canvas.getPages(courseId, (err, pages) => {
-            //     asyncLib.mapLimit(pages, 30, getFullPage, (err, allPages) => {
-            //         if (err) {
-            //             console.log(err);
-            //         } else {
-            //             allPages = allPages.filter(fixEyes);
-            //             console.log('Pages affected:', allPages.length);
-            //             asyncLib.eachLimit(allPages, 30, updatePage, (err) => {
-            //                 if (err) {
-            //                     console.log(err);
-            //                 }
-            //                 console.log('Success!!');
-            //             });
-            //         }
-            //     });
-            // });
+            canvas.getPages(courseId, (err, pages) => {
+                asyncLib.mapLimit(pages, 30, getFullPage, (err, allPages) => {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        allPages = allPages.filter(fixEyes);
+                        console.log('Pages affected:', allPages.length);
+                        asyncLib.eachLimit(allPages, 30, updatePage, (err) => {
+                            if (err) {
+                                console.log(err);
+                            }
+                            console.log('Success!!');
+                        });
+                    }
+                });
+            });
         }
     });
 }
