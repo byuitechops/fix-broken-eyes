@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "preversion": "node fix-broken-eyes.js",
     "version": "git add package.json",
-    "postversion": "git push && git checkout master && git merge dev "
+    "postversion": "git push && git checkout master && git merge dev && git push"
   },
   "author": "Emma Fisher",
   "license": "MIT",
