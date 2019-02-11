@@ -1,6 +1,6 @@
 {
   "name": "fix-broken-eyes",
-  "version": "1.9.0",
+  "version": "2.0.0",
   "description": "",
   "main": "fix-broken-eyes.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "preversion": "node fix-broken-eyes.js",
     "version": "git add package.json",
-    "postversion": "git push && git merge master dev "
+    "postversion": "git push && git checkout master && git merge dev "
   },
   "author": "Emma Fisher",
   "license": "MIT",
